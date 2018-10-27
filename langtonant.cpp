@@ -1,7 +1,7 @@
 #include "langtonant.h"
 
-LangtonAnt::LangtonAnt(int colors, vector<bool> program):
-    _colors(colors),
+LangtonAnt::LangtonAnt(vector<bool> program):
+    _colors(program.size()),
     _program(program),
     _x(0),
     _y(0),
@@ -10,8 +10,8 @@ LangtonAnt::LangtonAnt(int colors, vector<bool> program):
 
 }
 
-LangtonAnt::LangtonAnt(int colors, string program):
-    _colors(colors),
+LangtonAnt::LangtonAnt(string program):
+    _colors(program.size()),
     _program(program.size()),
     _x(0),
     _y(0),

@@ -27,10 +27,11 @@ private slots:
 private:
     int sizeX = 2000;
     int sizeY = 2000;
-    // microseconds
-    int freq = 1000;
+    // microseconds for thread
+    // milisecond for timer
+    int freq = 1;
     // miliseconds
-    int freqRepaint = 10;
+    int freqRepaint = 30;
     int scale = 5;
     int iter_num = 0;
 
@@ -38,6 +39,7 @@ private:
     QImage *image;
     QPixmap *pixmap;
     QPixmapDrawer *scene;
+    QPainter *painter;
     LangtonAnt *ant;
     vector<QRgb> colors;
 

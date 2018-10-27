@@ -25,8 +25,8 @@ struct hash<std::pair<int, int>> {
 class LangtonAnt
 {
 public:
-    LangtonAnt(int colors, vector<bool> program);
-    LangtonAnt(int colors, string program);
+    LangtonAnt(vector<bool> program);
+    LangtonAnt(string program);
 
     void Iterate(int &x, int &y, int& color);
 
