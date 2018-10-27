@@ -1,11 +1,30 @@
-#ifndef LANGTONANT_WORKER_H
-#define LANGTONANT_WORKER_H
+#pragma once
 
+#include <QThread>
+#include "langtonant.h"
+#include <vector>
+#include <QRgb>
+#include <QPainter>
+#include <QWidget>
 
-class langtonant_worker
+using std::vector;
+
+class LangtonAntWorker : public QThread
 {
+    Q_OBJECT
 public:
-    langtonant_worker();
-};
+    LangtonAntWorker(QWidget *parent, int scale, int sizeX, int sizeY, LangtonAnt *ant, int freq, QPixmap *pixmap, vector<QRgb> colors);
 
-#endif // LANGTONANT_WORKER_H
+    void run() override;
+
+private:
+    LangtonAnt *_ant;
+    int _freq;
+    QPixmap *_pixmap;
+    vector<QRgb> _colors;
+    int iter_num = 0;
+    int _sizeX;
+    int _sizeY;
+    int _scale;
+    QPainter *_painter;
+};

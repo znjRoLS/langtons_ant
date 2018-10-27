@@ -10,6 +10,7 @@ public:
     QPixmap *_pixmap;
 protected:
     void paintEvent(QPaintEvent *) override;
-
+private:
+    int iter_num = 0;
 private:
 };

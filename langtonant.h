@@ -3,6 +3,7 @@
 #include <vector>
 #include <unordered_map>
 #include <string>
+#include <QThread>
 
 using std::unordered_map;
 using std::vector;
