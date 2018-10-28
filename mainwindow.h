@@ -6,6 +6,7 @@
 #include "qpixmapdrawer.h"
 #include <QPainter>
 #include "langtonant.h"
+#include "langtonanthexa.h"
 #include "langtonant_worker.h"
 
 namespace Ui {
@@ -25,22 +26,21 @@ private slots:
     void iter();
 
 private:
-    int sizeX = 2000;
-    int sizeY = 2000;
+    int sizeX = 400;
+    int sizeY = 400;
     // microseconds for thread
     // milisecond for timer
     int freq = 1;
     // miliseconds
     int freqRepaint = 30;
-    int scale = 5;
+    int scale = 1;
     int iter_num = 0;
 
     Ui::MainWindow *ui;
     QImage *image;
-    QPixmap *pixmap;
+    QRgb* pixels;
     QPixmapDrawer *scene;
-    QPainter *painter;
-    LangtonAnt *ant;
+    LangtonAntHexa *ant;
     vector<QRgb> colors;
 
     LangtonAntWorker *worker;

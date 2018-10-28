@@ -1,13 +1,14 @@
 #pragma once
 
 #include <QLabel>
+#include <QImage>
 
 class QPixmapDrawer : public QLabel
 {
 public:
     QPixmapDrawer(QWidget *parent);
 
-    QPixmap *_pixmap;
+    QImage *_image;
 protected:
     void paintEvent(QPaintEvent *) override;
 private:

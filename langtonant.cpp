@@ -1,15 +1,5 @@
 #include "langtonant.h"
 
-LangtonAnt::LangtonAnt(vector<bool> program):
-    _colors(program.size()),
-    _program(program),
-    _x(0),
-    _y(0),
-    _dir(DIR::UP)
-{
-
-}
-
 LangtonAnt::LangtonAnt(string program):
     _colors(program.size()),
     _program(program.size()),
@@ -22,6 +12,7 @@ LangtonAnt::LangtonAnt(string program):
         if (c == 'R') _program[i] = true;
         else if (c == 'L') _program[i] = false;
     }
+
 }
 
 void LangtonAnt::Iterate(int& x, int& y, int& color) {

@@ -12,9 +12,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     qDebug() << "Hello world!";
 
-    pixmap = new QPixmap(sizeX, sizeY);
+
+    pixels = new QRgb[sizeX*sizeY];
+    for(int i = 0 ; i < sizeX*sizeY; i ++) pixels[i] = qRgb(0,0,0);
+    image = new QImage((uchar*)pixels, sizeX, sizeY, QImage::Format_ARGB32);
+
     scene = ui->label;
-    scene->_pixmap = pixmap;
+    scene->_image = image;
     colors = {
         qRgb(0,0,0),
         qRgb(255,0,0),
@@ -29,7 +33,6 @@ MainWindow::MainWindow(QWidget *parent) :
         qRgb(255,255,255),
         qRgb(127,127,127),
     };
-    painter = new QPainter(pixmap);
 
     this->setGeometry(0,0, sizeX, sizeY);
 
@@ -44,7 +47,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(timerrepaint, SIGNAL(timeout()), scene, SLOT(repaint()));
     timerrepaint->start(freqRepaint);
 
-    ant = new LangtonAnt("RRLLLRLLLRRR");
+    ant = new LangtonAntHexa("L1L2NUL2L1R2");
 
     //worker = new LangtonAntWorker(this, scale, sizeX, sizeY, ant, freq, pixmap, colors);
     //worker->start();
@@ -70,8 +73,12 @@ void MainWindow::iter() {
     y += y_offset;
 
     //qDebug() << timer.elapsed();
-    painter->setBrush(QColor(colors[color]));
-    painter->drawRect(x,y, scale, scale);
+    for (int xi = 0 ; xi < scale; xi ++) {
+        for (int yi = 0 ; yi < scale; yi ++) {
+            pixels[x+xi + (y+yi)*sizeX] = colors[color];
+        }
+    }
+
     //qDebug() << timer.elapsed()
 
 }

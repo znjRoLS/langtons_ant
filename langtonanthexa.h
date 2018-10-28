@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <string>
 #include <QThread>
+#include "langtonant.h"
 
 using std::unordered_map;
 using std::vector;
@@ -11,34 +12,34 @@ using std::pair;
 using std::string;
 
 
-namespace std {
-template<>
-struct hash<std::pair<int, int>> {
-  inline size_t operator()(const std::pair<int, int> &v) const {
-    std::hash<int> int_hasher;
-    return int_hasher(v.first) ^ int_hasher(v.second);
-  }
-};
-}
-
-
-class LangtonAnt
+class LangtonAntHexa
 {
 public:
-    LangtonAnt(string program);
+    LangtonAntHexa(string program);
 
     void Iterate(int &x, int &y, int& color);
 
 private:
     enum DIR {
-        UP,
+        UPLEFT,
         LEFT,
-        DOWN,
+        DOWNLEFT,
+        DOWNRIGHT,
         RIGHT,
+        UPRIGHT,
+    };
+
+    enum MOVE {
+        N,
+        L1,
+        L2,
+        U,
+        R2,
+        R1,
     };
 
     int _colors;
-    vector<bool> _program;
+    vector<MOVE> _program;
     unordered_map<pair<int,int>,int> _table;
 
     int _x;

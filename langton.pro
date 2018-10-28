@@ -27,13 +27,15 @@ SOURCES += \
         mainwindow.cpp \
     langtonant.cpp \
     qpixmapdrawer.cpp \
-    langtonant_worker.cpp
+    langtonant_worker.cpp \
+    langtonanthexa.cpp
 
 HEADERS += \
         mainwindow.h \
     langtonant.h \
     qpixmapdrawer.h \
-    langtonant_worker.h
+    langtonant_worker.h \
+    langtonanthexa.h
 
 FORMS += \
         mainwindow.ui
