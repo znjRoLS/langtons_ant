@@ -46,3 +46,9 @@ target_wrapper.*
 
 # QtCtreator CMake
 CMakeLists.txt.user*
+
+
+# clion
+cmake-build-debug
+.idea
+bin

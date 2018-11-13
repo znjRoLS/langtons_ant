@@ -3,7 +3,6 @@
 #include <vector>
 #include <unordered_map>
 #include <string>
-#include <QThread>
 
 using std::unordered_map;
 using std::vector;
@@ -28,6 +27,8 @@ public:
     LangtonAnt(string program);
 
     void Iterate(int &x, int &y, int& color);
+
+    pair<int,int> GetPosition();
 
 private:
     enum DIR {

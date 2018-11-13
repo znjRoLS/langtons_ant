@@ -47,7 +47,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(timerrepaint, SIGNAL(timeout()), scene, SLOT(repaint()));
     timerrepaint->start(freqRepaint);
 
-    ant = new LangtonAntHexa("L1L2NUL2L1R2");
+    ant = new LangtonAnt("LR");
+    //ant = new LangtonAntHexa("L1L2NUL2L1R2");
 
     //worker = new LangtonAntWorker(this, scale, sizeX, sizeY, ant, freq, pixmap, colors);
     //worker->start();

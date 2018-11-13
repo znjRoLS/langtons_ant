@@ -40,7 +40,7 @@ private:
     QImage *image;
     QRgb* pixels;
     QPixmapDrawer *scene;
-    LangtonAntHexa *ant;
+    LangtonAnt *ant;
     vector<QRgb> colors;
 
     LangtonAntWorker *worker;

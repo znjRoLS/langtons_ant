@@ -44,3 +44,7 @@ void LangtonAnt::Iterate(int& x, int& y, int& color) {
         }
     }
 }
+
+pair<int,int> LangtonAnt::GetPosition() {
+    return {_x, _y};
+}
